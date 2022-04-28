@@ -12,22 +12,29 @@ currentTime = currentTime.startOf("hour");
 var beforeTime = moment().startOf('day').add(8, "hours");
 
 console.log("currentTime ", currentTime.format('hh:mm A'))
+console.log("currentTime ", currentTime.format('HH'))
+console.log("currentTime", currentTime.valueOf())
+
+// https://stackoverflow.com/questions/39157618/comparing-time-with-momentjs
+// Need to use .valueOf() to compare times directly,
+// otherwise I'll be comparing strings
+
 
 // Time blocks
 // 8 AM 
 var time1 = beforeTime.add(0, "h");
+// if-else statement that adds color block to text
+if (currentTime.valueOf() > time1.valueOf()) {
+    $(".text1").addClass("past");
+} else if (currentTime.valueOf() === time1.valueOf()) {
+    $(".text1").addClass("present");
+} else if (currentTime.valueOf() < time1.valueOf()) {
+    $(".text1").addClass("future");
+}
 // var time1 = beforeTime;
 time1 = time1.format('hh:mm A');
 // Populates time formula into html
 $(".time1").text(time1);
-// if-else statement that adds color block to text
-if (currentTime.format('HH:mm A') > time1 ) {
-    $(".text1").addClass("past");
-} else if (currentTime.format('HH:mm A') === time1) {
-    $(".text1").addClass("present");
-} else if (currentTime.format('HH:mm A') < time1) {
-    $(".text1").addClass("future");
-}
 
 var save1 = $(".save1")
 var text1 = $(".text1")
@@ -39,15 +46,15 @@ $('.text1').val(localStorage.getItem('Stuff8am'))
 
 // 9 AM 
 var time2 = beforeTime.add(1, "h");
-time2 = time2.format('hh:mm A');
-$(".time2").text(time2);
-if (currentTime.format('HH:mm A') > time2) {
+if (currentTime.valueOf() > time2.valueOf()) {
     $(".text2").addClass("past");
-} else if (currentTime.format('HH:mm A') === time2) {
+} else if (currentTime.valueOf() === time2.valueOf()) {
     $(".text2").addClass("present");
-} else if (currentTime.format('HH:mm A') < time2) {
+} else if (currentTime.valueOf() < time2.valueOf()) {
     $(".text2").addClass("future");
 }
+time2 = time2.format('hh:mm A');
+$(".time2").text(time2);
 
 var save2 = $(".save2")
 var text2 = $(".text2")
@@ -58,15 +65,15 @@ $('.text2').val(localStorage.getItem('Stuff9am'))
 
 // 10 AM 
 var time3 = beforeTime.add(1, "h");
-time3 = time3.format('hh:mm A');
-$(".time3").text(time3);
-if (currentTime.format('HH:mm A') > time3) {
+if (currentTime.valueOf() > time3.valueOf()) {
     $(".text3").addClass("past");
-} else if (currentTime.format('HH:mm A') === time3) {
+} else if (currentTime.valueOf() === time3.valueOf()) {
     $(".text3").addClass("present");
-} else if (currentTime.format('HH:mm A') < time3) {
+} else if (currentTime.valueOf() < time3.valueOf()) {
     $(".text3").addClass("future");
 }
+time3 = time3.format('hh:mm A');
+$(".time3").text(time3);
 
 var save3 = $(".save3")
 var text3 = $(".text3")
@@ -77,15 +84,15 @@ $('.text3').val(localStorage.getItem('Stuff10am'))
 
 // 11 AM 
 var time4 = beforeTime.add(1, "h");
-time4 = time4.format('hh:mm A');
-$(".time4").text(time4);
-if (currentTime.format('HH:mm A') > time4) {
+if (currentTime.valueOf() > time4.valueOf()) {
     $(".text4").addClass("past");
-} else if (currentTime.format('HH:mm A') === time4) {
+} else if (currentTime.valueOf() === time4.valueOf()) {
     $(".text4").addClass("present");
-} else if (currentTime.format('HH:mm A') < time4) {
+} else if (currentTime.valueOf() < time4.valueOf()) {
     $(".text4").addClass("future");
 }
+time4 = time4.format('hh:mm A');
+$(".time4").text(time4);
 
 var save4 = $(".save4")
 var text4 = $(".text4")
@@ -96,15 +103,15 @@ $('.text4').val(localStorage.getItem('Stuff11am'))
 
 // 12 PM 
 var time5 = beforeTime.add(1, "h");
-time5 = time5.format('hh:mm A');
-$(".time5").text(time5)
-if (currentTime.format('HH:mm A') > time5) {
+if (currentTime.valueOf() > time5.valueOf()) {
     $(".text5").addClass("past");
-} else if (currentTime.format('HH:mm A') === time5) {
+} else if (currentTime.valueOf() === time5.valueOf()) {
     $(".text5").addClass("present");
-} else if (currentTime.format('HH:mm A') < time5) {
+} else if (currentTime.valueOf() < time5.valueOf()) {
     $(".text5").addClass("future");
 }
+time5 = time5.format('hh:mm A');
+$(".time5").text(time5)
 
 var save5 = $(".save5")
 var text5 = $(".text5")
@@ -115,15 +122,15 @@ $('.text5').val(localStorage.getItem('Stuff12pm'))
 
 // 1 PM 
 var time6 = beforeTime.add(1, "h");
-time6 = time6.format('hh:mm A');
-$(".time6").text(time6)
-if (currentTime.format('hh:mm A') > time6) {
+if (currentTime.valueOf() > time6.valueOf()) {
     $(".text6").addClass("past");
-} else if (currentTime.format('hh:mm A') === time6) {
+} else if (currentTime.valueOf() == time6.valueOf()) {
     $(".text6").addClass("present");
-} else if (currentTime.format('hh:mm A') < time6) {
+} else if (currentTime.valueOf() < time6.valueOf()) {
     $(".text6").addClass("future");
 }
+time6 = time6.format('hh:mm A');
+$(".time6").text(time6)
 
 var save6 = $(".save6")
 var text6 = $(".text6")
@@ -134,15 +141,15 @@ $('.text6').val(localStorage.getItem('Stuff1pm'))
 
 // 2 PM 
 var time7 = beforeTime.add(1, "h");
-time7 = time7.format('hh:mm A');
-$(".time7").text(time7);
-if (currentTime.format('hh:mm A') > time7) {
+if (currentTime.valueOf() > time7.valueOf()) {
     $(".text7").addClass("past");
-} else if (currentTime.format('hh:mm A') === time7) {
+} else if (currentTime.valueOf() === time7.valueOf()) {
     $(".text7").addClass("present");
-} else if (currentTime.format('hh:mm A') < time7) {
+} else if (currentTime.valueOf() < time7.valueOf()) {
     $(".text7").addClass("future");
 }
+time7 = time7.format('hh:mm A');
+$(".time7").text(time7);
 
 var save7 = $(".save7")
 var text7 = $(".text7")
@@ -153,15 +160,15 @@ $('.text7').val(localStorage.getItem('Stuff2pm'))
 
 // 3 PM 
 var time8 = beforeTime.add(1, "h");
-time8 = time8.format('hh:mm A');
-$(".time8").text(time8);
-if (currentTime.format('hh:mm A') > time8) {
+if (currentTime.valueOf() > time8.valueOf()) {
     $(".text8").addClass("past");
-} else if (currentTime.format('hh:mm A') === time8) {
+} else if (currentTime.valueOf() === time8.valueOf()) {
     $(".text8").addClass("present");
-} else if (currentTime.format('hh:mm A') < time8) {
+} else if (currentTime.valueOf() < time8.valueOf()) {
     $(".text8").addClass("future");
 }
+time8 = time8.format('hh:mm A');
+$(".time8").text(time8);
 
 var save8 = $(".save8")
 var text8 = $(".text8")
@@ -172,15 +179,15 @@ $('.text8').val(localStorage.getItem('Stuff3pm'))
 
 // 4 PM 
 var time9 = beforeTime.add(1, "h");
-time9 = time9.format('hh:mm A');
-$(".time9").text(time9);
-if (currentTime.format('hh:mm A') > time9) {
+if (currentTime.valueOf() > time9.valueOf()) {
     $(".text9").addClass("past");
-} else if (currentTime.format('hh:mm A') === time9) {
+} else if (currentTime.valueOf() === time9.valueOf()) {
     $(".text9").addClass("present");
-} else if (currentTime.format('hh:mm A') < time9) {
+} else if (currentTime.valueOf() < time9.valueOf()) {
     $(".text9").addClass("future");
 }
+time9 = time9.format('hh:mm A');
+$(".time9").text(time9);
 
 var save9 = $(".save9")
 var text9 = $(".text9")
@@ -191,15 +198,15 @@ $('.text9').val(localStorage.getItem('Stuff4pm'))
 
 // 5 PM 
 var time10 = beforeTime.add(1, "h");
-time10 = time10.format('hh:mm A');
-$(".time10").text(time10);
-if (currentTime.format('hh:mm A') > time10) {
+if (currentTime.valueOf() > time10.valueOf()) {
     $(".text10").addClass("past");
-} else if (currentTime.format('hh:mm A') === time10) {
+} else if (currentTime.valueOf() === time10.valueOf()) {
     $(".text10").addClass("present");
-} else if (currentTime.format('hh:mm A') < time10) {
+} else if (currentTime.valueOf() < time10.valueOf()) {
     $(".text10").addClass("future");
 }
+time10 = time10.format('hh:mm A');
+$(".time10").text(time10);
 
 var save10 = $(".save10")
 var text10 = $(".text10")
